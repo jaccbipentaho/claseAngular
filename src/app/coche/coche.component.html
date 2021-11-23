@@ -1,0 +1,66 @@
+
+<style>
+  div{
+    float:left;
+  }
+  form{
+    float:left;
+    width:200px;
+
+  }
+  .listado{
+    margin-left: 80px;
+  }
+  input[type="text"], span {
+    display: block;
+  }
+</style>
+<div>
+<form #formcoche="ngForm" (ngSubmit)="OnSubmit(entidadcoche); formcoche.reset()"  >
+  <p>
+  <label>Nombre</label>
+  <input name="nombre" #nombre="ngModel" type="text" [(ngModel)]="entidadcoche.nombre" required pattern="[A-Z0-9]+">
+  <span *ngIf="nombre.touched && !nombre.valid">El nombre es requerido!!!</span>
+</p>
+<p>
+<label>Caballaje</label><input  name="caballaje" type="text" [(ngModel)]="entidadcoche.caballaje" required>
+</p>
+<p>
+<label>Color</label><input name="color"  type="text" [(ngModel)]="entidadcoche.color" required>
+</p>
+<p>
+  <button value="Enviar" [disabled]="!formcoche.form.valid">Enviar</button>
+</p>
+</form>
+</div>
+<div class="listado">
+  <p>Listado de Coches</p>
+  <ul>
+    <li *ngFor="let auto of coches; let i= index">
+      {{i}} - {{auto.nombre}} - {{auto.caballaje}} -{{auto.color}} <button (click)="borrarcoche(i)">Borrar</button>
+    </li>
+  </ul>
+</div>
+<div class="listado">
+  <p>Listado de publicaciones</p>
+  <div class="col-md-12">
+    <table *ngIf="publicaciones" class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Title</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let publicacion of publicaciones">
+          <td>{{publicacion.id}}</td>
+          <td>{{publicacion.title}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <span *ngIf="!publicaciones">Cargando....</span>
+  </div>
+
+
+
+</div>

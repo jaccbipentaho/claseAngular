@@ -1,0 +1,12 @@
+.fondoAzul{
+  background: lightblue !important;
+
+}
+.fondoVerde{
+  background: Lightgreen !important;
+}
+
+.active {
+  font-weight: bold !important;
+  background-color: yellow !important;
+}

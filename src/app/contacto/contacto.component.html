@@ -1,0 +1,11 @@
+<p class="parrafo">{{titulo}}</p>
+<button class="btn btn-primary">Enviar</button>
+<div *ngIf="parametro">
+  Este es el parametro: {{parametro}}
+</div>
+<div *ngIf="!parametro">
+  <button (click)="redirigir()" class="btn btn-success"> Redirigir a parametro</button>
+</div>
+<div *ngIf="!parametro">
+  <button (click)="redirigirahome()" class="btn btn-success"> Redirigir a home</button>
+</div>
